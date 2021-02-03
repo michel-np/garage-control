@@ -6,7 +6,7 @@ export interface Car {
     licensePlate:string;
     color:string;
     taken:boolean;
-    currentDriver?: Driver
+    currentDriverId?: number | null;
 }
 
 export interface Cars extends Array<Car>{}
