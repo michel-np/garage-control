@@ -18,39 +18,6 @@ export const getAllCars = async () : Promise<Cars> =>{
 
 }
 
-export const getCarById = async (id:number) : Promise<Car | string> => {
-    try {        
-        let searchedCar = cars.find((car : Car) => car.id === id);
-        if(searchedCar){
-            return searchedCar
-        }else{
-            return 'Nenhum carro encontrado'
-        }
-        
-    } catch (error) {
-        throw new Error(error) ;
-    }
-}
-
-
-export const updateCar = async (payload: Car) : Promise<void> => {
-    try {
-        let {id, manufacturer, licensePlate , color } = payload;
-        let carIndex : number = cars.findIndex((car : Car) => car.id === id );
-                
-        cars[carIndex] = {
-        ...cars[carIndex],
-        manufacturer:manufacturer,
-        licensePlate:licensePlate,
-        color:color
-        }        
-    } catch (error) {
-        throw new Error(error);
-    }
-    
-
-}
-
 export const  addNewCar = async (payload : NewCar) : Promise<Car | string> => {
     try {
         let {
@@ -78,16 +45,60 @@ export const  addNewCar = async (payload : NewCar) : Promise<Car | string> => {
     }
 }
 
+export const getCarById = async (id:number) : Promise<Car | string> => {
+    try {        
+        let searchedCar = cars.find((car : Car) => car.id === id);
+        if(searchedCar){
+            return searchedCar
+        }else{
+            return 'Nenhum carro encontrado'
+        }
+        
+    } catch (error) {
+        throw new Error(error) ;
+    }
+}
+
+
+export const updateCar = async (payload: Car) : Promise<string> => {
+    try {
+        let {id, manufacturer, licensePlate , color } = payload;
+        let carIndex : number = cars.findIndex((car : Car) => car.id === id );
+                
+        if(carIndex){
+            cars[carIndex] = {
+                ...cars[carIndex],
+                manufacturer:manufacturer,
+                licensePlate:licensePlate,
+                color:color
+            }        
+            return "Carro Atualizado!"
+        }
+        else{
+            return "Carro não encontrado."
+        }
+        
+    } catch (error) {
+        throw new Error(error);
+    }
+    
+
+}
+
+
+
 export const getCarsByFilter = async (payload:NewCar) : Promise<Cars | undefined> => {
     try {
         let {
             color, 
             manufacturer
         } = payload;
-        let foundCars : Cars = cars.filter((car : Car) => car.color || car.manufacturer);
+        let foundCars : Cars = cars.filter((car : Car) => car.color === color || car.manufacturer === manufacturer);
         return foundCars;
     } catch (error) {
         throw new Error(error);
     }
 }
+
+
 

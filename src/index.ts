@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import {carRoutes} from './routes/carRoutes';
+import {driverRoutes} from './routes/driverRoutes';
 
 
 
@@ -18,9 +19,6 @@ const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app = express();
 
-app.get('/', (req, res)=>{
-  res.send("AE")
-})
 
 app.use(helmet());
 
@@ -29,6 +27,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/cars', carRoutes);
+
+app.use("/drivers", driverRoutes);
 
 
 const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
