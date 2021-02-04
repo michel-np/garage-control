@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node dist/index",
-    "webpack" : "webpack --config webpack.config.ts"
+    "start": "node dist/index",
+    "webpack": "webpack --config webpack.config.ts"
   },
   "keywords": [],
   "author": "",

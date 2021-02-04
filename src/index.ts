@@ -2,9 +2,9 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import {carRoutes} from './routes/carRoutes';
-import {driverRoutes} from './routes/driverRoutes';
-
+import { carRoutes } from './routes/carRoutes';
+import { driverRoutes } from './routes/driverRoutes';
+import { usageRecordRoutes } from './routes/usageRecordRoutes'
 
 
 
@@ -12,7 +12,7 @@ import {driverRoutes} from './routes/driverRoutes';
 dotenv.config();
 
 if (!process.env.PORT) {
-    process.exit(1);
+  process.exit(1);
 }
 
 const PORT: number = parseInt(process.env.PORT as string, 10);
@@ -26,9 +26,11 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use('/cars', carRoutes);
+app.use("/cars", carRoutes);
 
 app.use("/drivers", driverRoutes);
+
+app.use("/usage-records", usageRecordRoutes);
 
 
 const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

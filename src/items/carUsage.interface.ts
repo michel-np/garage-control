@@ -1,11 +1,12 @@
 export interface CarUsageRecord {
-    
-    id:number;
+
+    id: number;
     startedAt: Date;
-    endedAt: Date;
-    driverId:number;
-    carId:number;  
+    endedAt?: Date;
+    driverId: number;
+    carId: number;
+    usageReason: string;
 
 }
 
-export interface CarUsageRecords extends Array<CarUsageRecord> {}
+export interface CarUsageRecords extends Array<CarUsageRecord> { }
