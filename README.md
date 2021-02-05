@@ -24,7 +24,7 @@
  
  _______
  
- <p>The src folder has 3 subfolders: routes, items, controllers along with the index.ts file.</p>
+ <h2>The /src folder has 3 subfolders: routes, items, controllers along with the index.ts file.</h2>
  
  <p>routes: Contains the Cars, Drivers and Car Usage API Routes.</p>
  <p>items: Contains the main interfaces used in the project along with the mockup-storage.ts file, which, as the name says, it's a mockup database carrying the data used by the API</p>
