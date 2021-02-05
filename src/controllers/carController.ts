@@ -33,9 +33,9 @@ export const addNewCar = async (payload: NewCar): Promise<Car | string> => {
         if (!possibleDuplicate) {
             cars.push({
                 id: cars.length + 1,
-                manufacturer: manufacturer,
-                color: color,
-                licensePlate: licensePlate,
+                manufacturer: manufacturer.toUpperCase(),
+                color: color.toUpperCase(),
+                licensePlate: licensePlate.toUpperCase(),
                 taken: false,
                 currentDriverId: null
             })
@@ -72,11 +72,11 @@ export const getCarById = async (id: number): Promise<Car | string> => {
 export const updateCar = async (payload: Car): Promise<string> => {
     try {
         let {
-            id //of the car to be updated
-            //The data below is the car's updated data.
+            id
             , manufacturer
             , licensePlate
-            , color } = payload;
+            , color
+        } = payload;
         let carIndex: number = cars.findIndex((car: Car) => car.id === id);
 
         if (carIndex) {
@@ -101,14 +101,29 @@ export const updateCar = async (payload: Car): Promise<string> => {
 
 
 
-export const getCarsByFilter = async (payload: NewCar): Promise<Cars | undefined> => {
+export const getCarsByFilter = async (query: any): Promise<Array<object>> => {
     try {
-        let {
-            color,
-            manufacturer
-        } = payload;
-        let foundCars: Cars = cars.filter((car: Car) => car.color === color || car.manufacturer === manufacturer);
-        return foundCars;
+        console.log(query)
+        let results: Array<object> = []
+        if (!query.color && !query.manufacturer) return cars;
+        cars.forEach((car: Car) => {
+            if (query.color && !query.manufacturer) {
+                if (car.color.includes(query.color.toUpperCase())) {
+                    results.push(car)
+                }
+            }
+            if (!query.color && query.manufacturer) {
+                if (car.manufacturer.includes(query.manufacturer.toUpperCase())) {
+                    results.push(car)
+                }
+            }
+            if (query.color && query.manufacturer) {
+                if (car.manufacturer.includes(query.manufacturer.toUpperCase()) && car.color.includes(query.color.toUpperCase())) {
+                    results.push(car)
+                }
+            }
+        })
+        return results;
     } catch (error) {
         throw new Error(error);
     }
@@ -116,3 +131,16 @@ export const getCarsByFilter = async (payload: NewCar): Promise<Cars | undefined
 
 
 
+export const deleteCar = async (id: number): Promise<string> => {
+    try {
+        let carIndex: number | undefined = cars.findIndex((car: Car) => car.id === id);
+        if (carIndex !== -1) {
+            cars.splice(carIndex, 1);
+            return "Veículo excluído"
+        }
+        return "Veículo não encontrado."
+    } catch (error) {
+        throw new Error(error)
+    }
+
+}

@@ -1,4 +1,4 @@
-import { CarUsageRecord, CarUsageRecords } from '../items/carUsage.interface';
+import { CarUsageRecord } from '../items/carUsage.interface';
 import { Car, Cars } from '../items/cars.interface';
 import { Driver, Drivers } from '../items/drivers.interface';
 import { carUsageRecords, cars, drivers } from '../items/mockup-storage';
@@ -11,6 +11,10 @@ interface NewCarUsageRecord {
     carId: number;
     usageReason: string;
 }
+
+/**
+ * Returns all of the Records, but this time around, containing the Cars and Drivers objects instead of only their IDs. 
+ */
 
 export const getCarUsageRecords = async (): Promise<object[]> => {
     try {
@@ -33,7 +37,12 @@ export const getCarUsageRecords = async (): Promise<object[]> => {
 
 }
 
-export const addNewUsageRecord = async (payload: NewCarUsageRecord): Promise<string | undefined> => {
+/**
+ * 
+ * @param payload I've created an interface just to make the code look better.
+ */
+
+export const addNewUsageRecord = async (payload: NewCarUsageRecord): Promise<string> => {
     try {
         let {
             startedAt,
@@ -58,8 +67,9 @@ export const addNewUsageRecord = async (payload: NewCarUsageRecord): Promise<str
 
         }
         if (drivers[driverIndex].usingCar === true) {
-            /*
-              let car : Car | undefined = cars.find((car:Car) => drivers[driverIndex].currentCarId === car.id );
+            /*  
+                
+                let car : Car | undefined = cars.find((car:Car) => drivers[driverIndex].currentCarId === car.id );
                 return `Este motorista já está utilizando o veículo placa ${car?.licensePlate}`
               
              */
@@ -93,7 +103,7 @@ export const addNewUsageRecord = async (payload: NewCarUsageRecord): Promise<str
 }
 
 /**
- * 
+ * This method will be used to close an ongoing usage record.
  * @param id of the record to be updated
  * @param endDate the date that will be added to the record meaning the cycle is already completed.
  */

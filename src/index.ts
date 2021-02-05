@@ -11,9 +11,7 @@ import { usageRecordRoutes } from './routes/usageRecordRoutes'
 
 dotenv.config();
 
-if (!process.env.PORT) {
-  process.exit(1);
-}
+
 
 const PORT: number = parseInt(process.env.PORT as string, 10);
 
@@ -33,7 +31,7 @@ app.use("/drivers", driverRoutes);
 app.use("/usage-records", usageRecordRoutes);
 
 
-const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+const server = app.listen(PORT || 7000, () => console.log(`Listening on port ${PORT}`));
 
 type ModuleId = string | number;
 

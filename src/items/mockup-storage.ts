@@ -7,7 +7,7 @@ export const cars: Cars = [
     {
         id: 1,
         manufacturer: 'VOLKSWAGEN',
-        color: 'Azul',
+        color: 'AZUL',
         licensePlate: 'AAA-0000',
         taken: false,
         currentDriverId: null
@@ -15,7 +15,7 @@ export const cars: Cars = [
     {
         id: 2,
         manufacturer: 'FIAT',
-        color: 'Azul',
+        color: 'VERMELHO',
         licensePlate: 'BBB-1111',
         taken: false,
         currentDriverId: null
@@ -23,7 +23,7 @@ export const cars: Cars = [
     {
         id: 3,
         manufacturer: 'FORD',
-        color: 'Azul',
+        color: 'PRATA',
         licensePlate: 'CCC-2222',
         taken: true,
         currentDriverId: 3
@@ -31,7 +31,7 @@ export const cars: Cars = [
     {
         id: 4,
         manufacturer: 'CHEVROLET',
-        color: 'Azul',
+        color: 'PRETO',
         licensePlate: 'DDD-3333',
         taken: false,
         currentDriverId: 2
@@ -39,7 +39,7 @@ export const cars: Cars = [
     {
         id: 5,
         manufacturer: 'PEUGEOT',
-        color: 'Azul',
+        color: 'AMARELO',
         licensePlate: 'EEE-4444',
         taken: false,
         currentDriverId: null
@@ -47,7 +47,7 @@ export const cars: Cars = [
     {
         id: 6,
         manufacturer: 'HYUNDAI',
-        color: 'Azul',
+        color: 'BRANCO',
         licensePlate: 'FFF-5555',
         taken: false,
         currentDriverId: null
@@ -57,25 +57,25 @@ export const cars: Cars = [
 export const drivers: Drivers = [
     {
         id: 1,
-        name: 'Sergio Augusto',
+        name: 'SERGIO AUGUSTO',
         usingCar: false,
         currentCarId: null
     },
     {
         id: 2,
-        name: 'Paulo Ricardo',
+        name: 'PAULO RICARDO',
         usingCar: true,
         currentCarId: 4
     },
     {
         id: 3,
-        name: 'José Carlos',
+        name: 'JOSÉ CARLOS',
         usingCar: true,
         currentCarId: 3
     },
     {
         id: 4,
-        name: 'Sergio Augusto',
+        name: 'CLAUDIO SILVA',
         usingCar: false,
         currentCarId: null
     }
