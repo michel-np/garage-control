@@ -19,16 +19,16 @@
  
  After running these commands you'll notice that 2 folders were created in the root project folder. These are the following:
  
- /dist - created when the 'npm run webpack' command was executed. Contains the javascript index.js along with other files related to the HRM cache.
- /node_modules - created after npm install is executed in most NodeJS projects. Contains the modules binaries used in the project.
+ <p>/dist - created when the 'npm run webpack' command was executed. Contains the javascript index.js along with other files related to the HRM cache.</p>
+ <p>/node_modules - created after npm install is executed in most NodeJS projects. Contains the modules binaries used in the project.</p>
  
  _______
  
- The src folder has 3 subfolders: routes, items, controllers along with the index.ts file.
+ <p>The src folder has 3 subfolders: routes, items, controllers along with the index.ts file.</p>
  
- routes: Contains the Cars, Drivers and Car Usage API Routes.
- items: Contains the main interfaces used in the project along with the mockup-storage.ts file, which, as the name says, it's a mockup database carrying the data used by the API
- controllers: Contains the controllers, which are the files with the logic that treats and returns the data requested by the routes. 
+ <p>routes: Contains the Cars, Drivers and Car Usage API Routes.</p>
+ <p>items: Contains the main interfaces used in the project along with the mockup-storage.ts file, which, as the name says, it's a mockup database carrying the data used by the API</p>
+ <p>controllers: Contains the controllers, which are the files with the logic that treats and returns the data requested by the routes. </p>
  
  
  <h2>Enjoy!</h2>
