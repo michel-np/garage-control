@@ -22,7 +22,7 @@
  <p>/dist - created when the 'npm run webpack' command was executed. Contains the javascript index.js along with other files related to the HRM cache.</p>
  <p>/node_modules - created after npm install is executed in most NodeJS projects. Contains the modules binaries used in the project.</p>
  
- _______
+ 
  
  <h2>The /src folder has 3 subfolders: routes, items, controllers along with the index.ts file.</h2>
  
