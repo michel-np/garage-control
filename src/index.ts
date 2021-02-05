@@ -13,7 +13,7 @@ dotenv.config();
 
 
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
+const PORT: number = process.env.PORT ? parseInt(process.env.PORT as string, 10) : 7000;
 
 const app = express();
 
