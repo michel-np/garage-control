@@ -1,5 +1,5 @@
 # garage-control
-<p>This is a Node.JS API using Express framework and coded entirely using Typescript and compiled using webpack. <p/>
+<h2>This is a Node.JS API using Express framework and coded entirely using Typescript and compiled using webpack. </h2>
 
 <p>In order to run the server after cloning the repository, make sure of to have Node JS and NPM / YARN installed in your machine / container</p>
 
