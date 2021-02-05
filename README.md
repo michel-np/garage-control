@@ -13,4 +13,8 @@
     </li> 
  </ul>
  
- <h4> Then launch the server using npm start </h4>
+ <h4> Then launch the server using: </h4>
+ <h3>npm start</h3>
+ 
+ 
+ <h2>Enjoy!</h2>
