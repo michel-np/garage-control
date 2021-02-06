@@ -4,7 +4,13 @@ import { deleteCar, getCarById, updateCar, addNewCar, getCarsByFilter } from '..
 
 export const carRoutes = express.Router();
 
-
+/**
+ * @params {id: number
+            , manufacturer : string
+            , licensePlate : string
+            , color : string
+        }
+ */
 
 
 carRoutes.post("/add-car", async (req: Request, res: Response, next: NextFunction) => {
@@ -16,6 +22,14 @@ carRoutes.post("/add-car", async (req: Request, res: Response, next: NextFunctio
     }
 })
 
+/**
+ * @payload {id: number
+            , manufacturer : string
+            , licensePlate : string
+            , color : string
+        }
+ */
+
 carRoutes.post("/update-car", async (req: Request, res: Response, next: NextFunction) => {
     try {
         await updateCar(req.body);
@@ -24,6 +38,8 @@ carRoutes.post("/update-car", async (req: Request, res: Response, next: NextFunc
         next(error);
     }
 })
+
+
 
 carRoutes.get("/get-car/:id", async (req: Request, res: Response, next: NextFunction) => {
     try {
