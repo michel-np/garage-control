@@ -10,7 +10,7 @@ export const carRoutes = express.Router();
 carRoutes.post("/add-car", async (req: Request, res: Response, next: NextFunction) => {
     try {
         let response = await addNewCar(req.body)
-        res.status(200).send(Response, next : NextFunction)
+        res.status(200).send(response);
     } catch (error) {
         next(error);
     }
@@ -19,7 +19,7 @@ carRoutes.post("/add-car", async (req: Request, res: Response, next: NextFunctio
 carRoutes.post("/update-car", async (req: Request, res: Response, next: NextFunction) => {
     try {
         await updateCar(req.body);
-        res.status(200).send('Car Updated!')
+        res.status(200).send('Car Updated!');
     } catch (error) {
         next(error);
     }
